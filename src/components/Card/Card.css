@@ -57,6 +57,7 @@
 
 .card-image {
 	border-radius: 10px;
+	height: 300px;
 }
 .card-like-icon {
 	height: 25px;

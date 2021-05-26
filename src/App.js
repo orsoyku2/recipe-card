@@ -1,26 +1,37 @@
 import "./App.css";
 import Card from "./components/Card/Card";
 import food from "./assets/food.jpg"; // Tell webpack this JS file uses this image
+import React, {useState} from 'react'
 
 function App() {
   const recipeAuthor = "Kodluyoruz";
   const recipeItem = {
-    title: "Avokado Ezmeli Taco",
-    date: "12 Ocak 2021, Salı",
+    title: "Pizza",
+    date: "25 May 2021, Tuesday",
     image: food,
-    description:
-      "Bu kremsi ve baharatlı avokado sosu, günlük taco'larınızı hazırlamak için harika seçeneklerden biri. Geleneksel olarak flautas veya taquitos ile servis edilir, ancak bazı vegan enchiladalara da harika bir katkı sağlar.",
+    description:"Neapolitan-inspired pizzas prepared in our wood-burning Pavesi ovens topped with fresh local ingredients share the menu with dessert tacos, craft beers and original cocktails."
+      
   };
+  let setLike = () => {
+    setisLiked(true)
+    setLikeCount(likeCount+1)
 
-  const likeCount = 193;
-  const isLiked = false;
+  }
 
+  const [likeCount,setLikeCount] = useState(0)
+  const [isLiked,setisLiked] = useState(false);
+  let {title,date,image,description} = recipeItem;
   return (
     <div className="App">
       <header className="App-header">
         <Card
-          /* prop ismi = { değişken } */
+          title={title}
           author={recipeAuthor}
+          description={description}
+          likeCount={likeCount}
+          date={date}
+          liked={isLiked}
+          setLike={setLike}
         />
       </header>
     </div>
